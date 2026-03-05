@@ -136,17 +136,24 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleImageDisplay() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
-        if (img.src && img.src !== window.location.href) {
-            img.onload = function() {
-                this.style.display = 'block';
-                const placeholder = document.getElementById(this.id.replace('Image', 'ImagePlaceholder').replace('Logo', 'LogoPlaceholder'));
+        const hasValidSrc = img.src && img.src !== window.location.href && img.getAttribute('src');
+        if (hasValidSrc) {
+            function showImage() {
+                img.style.display = 'block';
+                const placeholderId = (img.id || '').replace('Image', 'ImagePlaceholder').replace('Logo', 'LogoPlaceholder');
+                const placeholder = placeholderId ? document.getElementById(placeholderId) : null;
                 if (placeholder) {
                     placeholder.style.display = 'none';
                 }
-            };
-            img.onerror = function() {
-                this.style.display = 'none';
-            };
+            }
+            if (img.complete && img.naturalWidth > 0) {
+                showImage();
+            } else {
+                img.onload = showImage;
+                img.onerror = function() {
+                    img.style.display = 'none';
+                };
+            }
         } else {
             img.style.display = 'none';
         }

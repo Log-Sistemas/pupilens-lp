@@ -226,7 +226,7 @@ p {
 
 .hero h1 {
     color: white;
-    font-size: 5.5rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
     text-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     animation: slideInUpBold 0.8s ease-out;
@@ -235,7 +235,7 @@ p {
 
 .hero h2 {
     color: rgba(255, 255, 255, 0.95);
-    font-size: 2.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
     text-align: left;
     margin-bottom: 2.5rem;
@@ -244,9 +244,13 @@ p {
     letter-spacing: -0.01em;
 }
 
+.hero .container {
+    padding: 0;
+}
+
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     gap: 100px;
     align-items: center;
     position: relative;
@@ -258,9 +262,24 @@ p {
     animation: slideInLeftBold 0.8s ease-out;
 }
 
+.hero-cta-wrapper {
+    display: inline-block;
+    width: fit-content;
+}
+
+.cta-subtext {
+    max-width: 68%;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+    text-align: center;
+}
+
 .hero-description {
-    font-size: 1.5rem;
-    line-height: 1.8;
+    font-size: 1.2rem;
+    line-height: 1;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 3rem;
     animation: slideInUpBold 0.8s ease-out 0.4s both;
@@ -278,7 +297,7 @@ p {
 .hero-image-container {
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 0;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     border-radius: 40px;
     box-shadow: var(--shadow-2xl), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
@@ -300,31 +319,36 @@ p {
     z-index: 2;
 }
 
-.hero-image-container::after {
-    content: '';
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background: #0a0a0a;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    z-index: 2;
-}
-
 .hero-image-container:hover {
     transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.05);
+}
+
+/* Remove black circle from tablet frames */
+.hero-image-container::after,
+.section-image-container::after,
+.differentiators-image-container::after,
+.feature-image-item::after {
+    display: none !important;
 }
 
 .hero-main-image {
     width: 100%;
     height: auto;
-    display: none;
     border-radius: 24px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1.42 / 1;
     object-fit: cover;
+}
+
+.hero-image-container:not(:has(img[src])) .hero-main-image {
+    display: none;
+}
+
+.hero-image-container:has(img[src]) .hero-main-image {
+    display: block;
+}
+
+.hero-image-container:has(img[src]) .hero-placeholder {
+    display: none !important;
 }
 
 .hero-placeholder {
@@ -337,7 +361,7 @@ p {
     color: rgba(255, 255, 255, 0.95);
     width: 100%;
     min-height: 500px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1.42 / 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -378,29 +402,31 @@ p {
     z-index: 2;
 }
 
-.section-image-container::after,
-.differentiators-image-container::after {
-    content: '';
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background: #0a0a0a;
-    border-radius: 50%;
-    border: 2px solid rgba(18, 16, 53, 0.3);
-    z-index: 2;
-}
-
 .section-image,
 .feature-image {
     width: 100%;
     height: auto;
-    display: none;
     border-radius: 24px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1.42 / 1;
     object-fit: cover;
+}
+
+.section-image-container:not(:has(img[src])) .section-image,
+.differentiators-image-container:not(:has(img[src])) .section-image,
+.feature-image-item:not(:has(img[src])) .feature-image {
+    display: none;
+}
+
+.section-image-container:has(img[src]) .section-image,
+.differentiators-image-container:has(img[src]) .section-image,
+.feature-image-item:has(img[src]) .feature-image {
+    display: block;
+}
+
+.section-image-container:has(img[src]) .image-placeholder,
+.differentiators-image-container:has(img[src]) .image-placeholder,
+.feature-image-item:has(img[src]) .image-placeholder {
+    display: none !important;
 }
 
 .image-placeholder {
@@ -412,7 +438,7 @@ p {
     color: var(--text-light);
     font-weight: 600;
     min-height: 400px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1.42 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -454,24 +480,10 @@ p {
     z-index: 2;
 }
 
-.feature-image-item::after {
-    content: '';
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background: #0a0a0a;
-    border-radius: 50%;
-    border: 2px solid rgba(18, 16, 53, 0.3);
-    z-index: 2;
-}
-
 .feature-image {
     border-radius: 24px;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1.42 / 1;
     object-fit: cover;
 }
 
