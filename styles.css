@@ -539,6 +539,8 @@ p {
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
+    background-size: 120% 120%;
+    background-repeat: repeat;
 }
 
 .cta-button::before {
@@ -560,27 +562,27 @@ p {
 }
 
 .cta-primary {
-    background-color: white;
-    color: var(--primary-color);
+    background: linear-gradient(90deg, #00bac4, var(--primary-color));
+    color: #ffffff;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border: 3px solid white;
+    border: none;
 }
 
 .cta-primary:hover {
-    background-color: var(--bg-light);
+    background: linear-gradient(90deg, #00d5e0, var(--primary-dark));
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .cta-secondary {
-    background: var(--primary-color);
-    color: white;
+    background: linear-gradient(90deg, #00bac4, var(--primary-color));
+    color: #ffffff;
     box-shadow: 0 12px 40px rgba(18, 16, 53, 0.4);
-    border: 3px solid var(--primary-color);
+    border: none;
 }
 
 .cta-secondary:hover {
-    background: var(--primary-dark);
+    background: linear-gradient(90deg, #00d5e0, var(--primary-dark));
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 20px 60px rgba(18, 16, 53, 0.5);
     border-color: var(--primary-dark);
