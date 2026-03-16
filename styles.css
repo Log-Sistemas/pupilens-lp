@@ -392,6 +392,17 @@ p {
     border: 6px solid #0a0a0a;
 }
 
+/* Container da imagem principal da seção solução:
+   borda mais fina e menos padding para encaixar melhor o GIF */
+.solution .section-image-container {
+    padding: 0;
+    border-radius: 28px;
+    border-width: 4px;
+    max-width: 100%;
+    overflow: hidden;
+    aspect-ratio: 1.42 / 1;
+}
+
 .section-image-container::before,
 .differentiators-image-container::before {
     content: '';
@@ -415,6 +426,17 @@ p {
     object-fit: cover;
 }
 
+/* Ajuste específico para o GIF da seção solução */
+#solutionImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+    transform: none;
+    margin-left: 1.6%;
+}
+
 .section-image-container:not(:has(img[src])) .section-image,
 .differentiators-image-container:not(:has(img[src])) .section-image,
 .feature-image-item:not(:has(img[src])) .feature-image {
@@ -433,6 +455,27 @@ p {
     display: none !important;
 }
 
+.gif-placeholder {
+    background: linear-gradient(135deg, var(--bg-light), #e9ecef);
+    border: 4px dashed var(--border-color);
+    border-radius: 24px;
+    padding: 0px;
+    text-align: center;
+    color: var(--text-light);
+    font-weight: 600;
+    min-height: 400px;
+    aspect-ratio: 1.42 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.gif-placeholder.small {
+    padding: 0px;
+    min-height: 150px;
+    font-size: 0.9375rem;
+}
 .image-placeholder {
     background: linear-gradient(135deg, var(--bg-light), #e9ecef);
     border: 4px dashed var(--border-color);
