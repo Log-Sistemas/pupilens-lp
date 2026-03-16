@@ -20,5 +20,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /home/USUARIO_FTP/DOMINIO_PUPILENS.com.br/
+          server-dir: /home/USUARIO_FTP/DOMINIO_PUPILENS/lp-pupilens
           local-dir: pupilens_LP/
