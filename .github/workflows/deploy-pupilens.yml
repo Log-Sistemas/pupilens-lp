@@ -20,7 +20,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /home/USUARIO_FTP/DOMINIO_PUPILENS/lp-pupilens/
+          server-dir: /home/USUARIO_FTP/DOMINIO_PUPILENS/pupilens_LP/
           local-dir: pupilens_LP/
           protocol: ftps
           port: 21
