@@ -22,4 +22,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           source: "./*"
-          target: "/home/deploy_LPs/pupilens.com/lp-pupilens" 
+          target: "/home/deploy_LPs/kerootica.com.br/lp-pupilens" 
