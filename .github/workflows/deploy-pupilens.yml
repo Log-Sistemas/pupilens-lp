@@ -7,20 +7,19 @@ on:
 
 jobs:
   deploy:
-    name: Upload Pupilens to DreamHost
+    name: Upload Pupilens to DreamHost (SSH)
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: FTP Deploy Pupilens
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      - name: Deploy Pupilens via SSH
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /home/USUARIO_FTP/DOMINIO_PUPILENS/pupilens_LP/
-          local-dir: ./
-          protocol: ftp
-          port: 21
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          source: "pupilens_LP/*"
+          target: "/home/deploy_LPs/pupilens.com/lp-pupilens"
