@@ -22,4 +22,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           source: "pupilens_LP/*"
-          target: "/home/deploy_LPs/pupilens.com/lp-pupilens"
+          target: "/home/deploy_LPs/pupilens.com/lp-pupilens" 
