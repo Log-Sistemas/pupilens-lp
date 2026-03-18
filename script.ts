@@ -23,7 +23,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
 });
 
 // Form submission handler
-const contactForm = document.getElementById('contactForm') as HTMLFormElement;
+const contactForm = document.getElementById('pp-form') as HTMLFormElement;
 
 if (contactForm) {
     contactForm.addEventListener('submit', (e: Event) => {
@@ -46,7 +46,9 @@ if (contactForm) {
         showFormMessage('Obrigado! Entraremos em contato em breve.', 'success');
         
         // Reset form
-        contactForm.reset();
+        setTimeout(() => {
+            contactForm.reset();
+        }, 500);
         
         // In a real application, you would send the data to a server here
         console.log('Form data:', formData);
@@ -104,7 +106,7 @@ function showFormMessage(message: string, type: 'success' | 'error'): void {
     `;
 
     // Insert message after form
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('pp-form');
     if (form && form.parentNode) {
         form.parentNode.insertBefore(messageElement, form.nextSibling);
     }
